@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    {% block jquery %}
+    var endpoint = '/api/data'
+
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+        console.log(data)
+        $("#txt1").val(data.resultado)
+        $("#txtValor1").val(data.valor1)
+        $("#txtValor2").val(data.valor2)
+      },
+      error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+      }
+    })
+    {% endblock %}
+    </script>
+  </head>
+  <body>
+    <div class="formulario">
+      <h1>Calculadora</h1>
+      <form class="" action="." method="POST"> {% csrf_token %}
+        <input type="text" id="txtValor1" name="inputA" placeholder="Valor 1" /> <br />
+        <input type="text" id="txtValor2" name="inputB" placeholder="Valor 2" /> <br />
+        <input type="submit" value="Calcular"> <br />
+        <input type="text" id="txt1" name="inputR" value="">
+      </form>
+    </div>
+  </body>
+</html>
