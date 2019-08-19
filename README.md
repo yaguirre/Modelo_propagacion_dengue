@@ -50,7 +50,7 @@ $ virtualenv -p python3 your_project_folder\
 ```
 #### 4. Iniciar ambiente virtual
 Seguidamente debemos movernos al directorio donde creamos el ambiente virtual e inicializarlo, para esto debemos seguir dar los siguientes comandos
-```bash
+```
 $ cd your_project_folder\
 
 # Windows
